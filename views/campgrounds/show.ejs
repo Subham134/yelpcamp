@@ -1,0 +1,73 @@
+<% include ../assets/header %>
+
+ <div class="container">
+     <div class="row">
+         <div class="col-md-3">
+             <p class="lead">YELP CAMP</p>
+             <div class="list-group">
+                 <li class="list-group-item active">info1</li>
+                 <li class="list-group-item">info1</li>   
+                 <li class="list-group-item">info1</li>
+             </div>
+         </div>
+         <div class="col-md-9">
+            <div class="thumbnail">
+             <img class="img-responsive" src="<%= camping.image %>">
+             <div class="caption-full">
+                 <h4 class="pull-right"> $150/night</h4> 
+                 <h1><%= camping.name %></h1>
+                 <p><%= camping.description %> </p>
+                 <p><em>submitted by <%= camping.author.username %></em></p>  
+                 <% if(cUser && camping.author.id.equals(cUser._id)){ %>
+                 <a class="btn btn-success" href="/campsites/<%= camping._id %>/edit">Edit</a>
+                 <form action="/campsites/<%= camping._id %>?_method=DELETE" method="POST" id="x">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+                <% } %>
+             </div>
+          </div>
+            
+            <div class="well">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/campsites/<%= camping._id %>/comments/new">New Comment</a>
+              
+                </div>
+                <hr> 
+             
+
+
+            <% camping.comments.forEach(function(comment){ %>
+                <div class="row">
+                        <div class="col-md-12">
+                <p><strong><%= comment.author.username %></strong></p>
+                <span class="pull-right">10 days</span>
+                <p><%= comment.text %></p>
+                <% if(cUser && comment.author.id.equals(cUser._id)){ %>
+                <a class="btn btn-xs btn-warning" href="/campsites/<%= camping._id %>/comments/<%= comment._id %>/edit ">edit</a>
+                <form id="comment" action="/campsites/<%= camping._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-xs btn-danger">Delete</button>
+                </form>
+                <% } %>
+                <hr>
+            </div>
+                
+          <% }); %>
+            </div>
+         
+                    
+                </div>
+            </div>
+        </div>
+     </div>
+  
+ </div>
+
+        
+        
+      
+    
+
+        
+ 
+        
+    <% include ../assets/footer %>

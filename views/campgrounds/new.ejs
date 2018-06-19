@@ -1,0 +1,21 @@
+<% include ../assets/header %>
+
+<form class="ui form" action="/campsites" method="post">
+        <h1 style="text-align: center">Create a new campground</h1>
+    <div class="field" style="width: 30%; margin:30px auto">
+      <label>name</label>
+      <input type="text" name="name" placeholder="name">
+    </div>
+    <div class="field" style="width: 30%; margin:30px auto">
+      <label>url</label>
+      <input type="text" name="url" placeholder="url">
+    </div>
+    <div class="field" style="width: 30%; margin:30px auto">
+            <label>Text</label>
+            <textarea placeholder="description" name="description"></textarea>
+          </div>
+          <div style="width: 30%; margin:30px auto">
+                <button class="fluid ui black button">Fits container</button>
+    </div>
+  </form>
+<% include ../assets/footer %>

@@ -1,0 +1,16 @@
+<% include ../assets/header %>
+
+<form class="ui form" action="/campsites/<%= camp._id %>/comments" method="post">
+        <h1 style="text-align: center">Add A New Comment</h1>
+    <div class="field" style="width: 30%; margin:30px auto">
+      <label>text</label>
+      <input type="text" name="comment[text]" placeholder="text">
+    </div>
+
+    
+    
+          <div style="width: 30%; margin:30px auto">
+                <button class="fluid ui black button">Fits container</button>
+    </div>
+  </form>
+<% include ../assets/footer %>
