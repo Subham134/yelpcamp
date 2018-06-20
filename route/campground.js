@@ -16,11 +16,12 @@
     router.post("/",mid.isLoggedIn,function(req,res){
         var name = req.body.name;
         var url = req.body.url;
+        var price = req.body.price;
         var description = req.body.description;
         var author ={ id:req.user.id,
                       username:req.user.username
                       };
-        var obj = {name: name,image: url,description:description,author:author};
+        var obj = {name: name,image: url,description:description,author:author,price:price};
        camping.create(obj,function(err,camp){
              if(err){
                  console.log("  something went wrong!!!!!")
